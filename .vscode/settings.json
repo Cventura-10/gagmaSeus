@@ -1,0 +1,19 @@
+{
+  "eslint.enable": true,
+  "eslint.nodePath": "node_modules/eslint", // Keep if necessary
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.options": {
+    "configFile": "./.eslintrc.js" // Adjust based on your project structure
+  },
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+  "workbench.editor.wrapTabs": true,
+  "eslint.useESLintClass": true,
+  "jshint.enable": false,
+  "workbench.settings.useSplitJSON": true,
+  "cmake.allowCommentsInPresetsFile": true
+}
