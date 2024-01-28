@@ -1,22 +1,12 @@
 // src/reducers/userReducer.js
+const initialState = {
+  // your initial state here
+};
 
-// Initial state of the users
-const initialUsersState = {
-  // Add default users parameters or their initial values here
-  // Example: usersList: [], selectedUser: null
-}
+const userReducer = (state = initialState, action) => {
+  // your reducer logic here, utilizing the 'action' variable
+  console.log(action.type); // Example of using the 'action' variable
+  return state;
+};
 
-// userReducer with 'SET_USER' action handling
-export const userReducer = (state = initialUsersState, action) => {
-  switch (action.type) {
-    case 'SET_USER': // Handle action for setting user details
-      // Assumes an action with type 'SET_USER' and payload containing user data
-      return { ...state, ...action.payload } // Reducer updates state with payload data
-
-    // Insert other case actions as needed
-
-    // Always return the state by default if no action matches
-    default:
-      return state
-  }
-}
+export default userReducer;

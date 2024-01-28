@@ -1,0 +1,33 @@
+.motorcycle-frame {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.motorcycle-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.motorcycle-options span {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.motorcycle-options span:hover {
+  background-color: #ccc;
+}

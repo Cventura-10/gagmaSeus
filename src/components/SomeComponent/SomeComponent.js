@@ -1,10 +1,10 @@
 // Sample React component (src/components/SomeComponent.js)
+import LogoIcon from '../../assets/icons/logo.svg'; // Fix import paths
+import ArrowRightIcon from '../../assets/icons/arrow-right.svg'; // Fix import paths
+import UserProfileIcon from '../../assets/icons/user-icon.png'; // Fix import paths
+import BackgroundImage from '../../assets/images/background.jpg'; // Fix import paths
+import ProfilePicture from '../../assets/images/profile-picture.png'; // Fix import paths
 
-import logo from '../../assets/icons/logo.svg';
-import arrowRight from '../../assets/icons/arrow-right.svg';
-import userIcon from '../../assets/icons/user-icon.png';
-import background from '../../assets/images/background.jpg';
-import profilePicture from '../../assets/images/profile-picture.png';
 const SomeComponent = () => {
   return (
     <div>

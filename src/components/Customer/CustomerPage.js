@@ -1,5 +1,5 @@
 // src/components/CustomerPage/CustomerPage.js
-import React from 'react';
+import React from 'react'
 
 const CustomerPage = () => {
   return (
@@ -7,7 +7,7 @@ const CustomerPage = () => {
       <h1>Customer</h1>
       {/* Customer Fields and Functionality */}
     </div>
-  );
-};
+  )
+}
 
-export default CustomerPage;
+export default CustomerPage

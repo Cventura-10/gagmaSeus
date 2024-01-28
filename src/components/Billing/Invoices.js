@@ -1,6 +1,6 @@
 // src/components/Billing/Invoices.js
-import React from 'react';
+import React from 'react'
 export default function Invoices() {
   // Billing component logic...
-  return <div>Invoices Component</div>;
+  return <div>Invoices Component</div>
 }

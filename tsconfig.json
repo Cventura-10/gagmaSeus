@@ -1,0 +1,21 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/api/*": ["api/*"],
+      "@/actions/*": ["actions/*"],
+      "@/components/*": ["components/*"],
+      "@/reducers/*": ["reducers/*"],
+      "@/services/*": ["services/*"],
+      "@/store/*": ["store/*"]
+      // Add other aliases as needed
+    },
+    "esModuleInterop": true,
+    "jsx": "react",
+    "strict": true,
+    "allowJs": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "build", "dist"]
+}

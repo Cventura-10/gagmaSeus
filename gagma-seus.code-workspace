@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "gagma",
+			"path": "gagma"
+		}
+	],
+	"settings": {
+		"workbench.editor.enablePreviewFromCodeNavigation": true,
+		"workbench.editor.pinnedTabsOnSeparateRow": true,
+		"workbench.editor.wrapTabs": true,
+		"jshint.enable": false,
+		"workbench.settings.useSplitJSON": true
+	}
+}

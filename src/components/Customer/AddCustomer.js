@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const AddCustomer = () => {
-    return (
-        <div>
-            {/* Form for adding a new customer */}
-        </div>
-    );
+  return <div>{/* Form for adding a new customer */}</div>
 }
 
-export default AddCustomer;
+export default AddCustomer

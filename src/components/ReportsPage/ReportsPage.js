@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 const ReportsPage = () => {
   // Component logic for ReportsPage
-  return <div>Reports Page Content</div>;
-};
+  return <div>Reports Page Content</div>
+}
 
-export default ReportsPage;
+export default ReportsPage

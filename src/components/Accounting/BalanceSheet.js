@@ -1,12 +1,12 @@
 import React from 'react';
 
-const BalanceSheet = () => {
+function BalanceSheet() {
   return (
     <div>
-      {/* Content of Balance Sheet component */}
-      <h1>Balance Sheet</h1>
+      <h2>Balance Sheet</h2>
+      {/* Content for the balance sheet */}
     </div>
   );
-};
+}
 
 export default BalanceSheet;

@@ -1,12 +1,16 @@
-// settingsReducer.js
-const initialSettingsState = {
-  // Default settings parameters or values
-}
+// Example of settingReducer.js
+const initialState = {
+  theme: 'light',
+  language: 'en',
+  // ...other settings
+};
 
-export const settingReducer = (state = initialSettingsState, action) => {
+const settingReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Handle different action types here
+    // handle different action types here
     default:
-      return state
+      return state;
   }
-}
+};
+
+export default settingReducer;

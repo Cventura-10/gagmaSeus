@@ -1,38 +1,109 @@
+/* src/App.css */
 .App {
+  font-family: 'Arial', sans-serif;
   text-align: center;
+  padding-top: 64px; /* Adds padding to the top equal to the header height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Accounting dropdown styles */
+.Accounting-Section {
+  position: relative; /* To position the dropdown */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Accounting-List {
+  display: none; /* Hidden by default */
+  position: absolute; /* Positioned relative to the nav bar */
+  background-color: #333; /* Dark background for the dropdown */
+  min-width: 160px; /* Minimum width */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Adding some shadow */
+  z-index: 2; /* Ensures the dropdown remains on top */
 }
 
+.Accounting-List li {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.Accounting-List li:hover, .Accounting-List li a:hover {
+  background-color: #ddd; /* Light background on hover */
+  color: black;
+}
+
+.Accounting-Section:hover .Accounting-List {
+  display: block; /* Display dropdown on hover */
+}
+
+/* Fixed header styles */
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  justify-content: space-between; /* Distribute space between elements */
+  align-items: center; /* Align items vertically */
+  position: fixed; /* Fixed at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Align to the top of the page */
+  z-index: 3; /* Higher z-index so it floats above other content */
 }
 
-.App-link {
+/* Adjust logo size */
+.App-logo {
+  height: 60px; /* Adjust as necessary */
+}
+
+/* Navigation bar styles */
+.App-nav {
+  border: 2px solid #61dafb;
+  border-radius: 8px; /* Rounded corners for the frame */
+  padding: 10px;
+  margin-top: 80px; /* Provides space below the fixed header */
+  display: flex; /* Make nav list horizontal */
+  justify-content: center; /* Center the navigation */
+  background-color: white; /* Background color for the navbar */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add shadow for depth */
+}
+
+.App-nav ul {
+  list-style-type: none; /* Remove default list styling */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+.App-nav li {
+  padding: 10px 20px; /* Add padding to each nav item for better touch target */
+  margin: 0 10px; /* Add horizontal spacing between the items */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.App-nav li:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Hover effect for nav items */
+}
+
+.App-nav a {
   color: #61dafb;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out; /* Smooth transition for color change */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-nav a:hover {
+  color: #fff;
+}
+
+/* Main content styling */
+.App-content {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* Style the image in main content */
+.App-content img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* To center the image */
+  margin: 20px auto; /* Add margin to center the image and give space */
 }

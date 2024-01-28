@@ -1,5 +1,6 @@
 // src/services/authService.js
 import axios from 'axios'
+import process from 'process';
 
 // Typically you'd have these endpoints and api url in a constants file or environment variables
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000'
@@ -13,7 +14,7 @@ const authService = {
     try {
       const response = await axios.post(`${API_URL}${LOGIN_ENDPOINT}`, {
         email,
-        password,
+        password
       })
 
       if (response.data.accessToken) {
@@ -33,7 +34,7 @@ const authService = {
       const response = await axios.post(`${API_URL}${REGISTER_ENDPOINT}`, {
         name,
         email,
-        password,
+        password
       })
       return response.data
     } catch (error) {
@@ -51,7 +52,7 @@ const authService = {
   // Current user details from local storage
   getCurrentUser: () => {
     return JSON.parse(localStorage.getItem('user'))
-  },
+  }
 }
 
 export default authService

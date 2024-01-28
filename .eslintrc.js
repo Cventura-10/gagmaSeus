@@ -1,28 +1,39 @@
 module.exports = {
-  // Updated parser to @babel/eslint-parser
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    requireConfigFile: false,
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
+    env: {
+      browser: true,
+      es2021: true
     },
-  },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
-  plugins: ['react', 'prettier'],
-  rules: {
-    'react/prop-types': 'off',
-    'prettier/prettier': 'error',
-  },
-  settings: {
-    react: {
-      version: 'detect',
+    extends: [
+      'eslint:recommended',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:react/recommended'
+    ],
+    overrides: [
+      {
+        env: {
+          node: true
+        },
+        files: [
+          '.eslintrc.{js,cjs}'
+        ],
+        parserOptions: {
+          sourceType: 'script'
+        }
+      }
+    ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module'
     },
-  },
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-}
+    plugins: [
+      '@typescript-eslint',
+      'react'
+    ],
+    rules: {
+      'react/react-in-jsx-scope': 'off', // React 17+ doesn't require React to be in scope
+      'react/jsx-uses-react': 'off', // React 17+ doesn't require React to be imported when using JSX
+      // Add other rule configurations here as necessary
+    }
+  }
+  

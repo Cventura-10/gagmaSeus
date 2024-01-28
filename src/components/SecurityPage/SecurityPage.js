@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const SecurityPage = () => {
-  return <div>Security Page Content</div>;
-};
+  return <div>Security Page Content</div>
+}
 
-export default SecurityPage;
+export default SecurityPage

@@ -1,5 +1,5 @@
 // src/components/ReceiptPage/ReceiptPage.js
-import React from 'react';
+import React from 'react'
 
 const ReceiptPage = () => {
   return (
@@ -7,7 +7,7 @@ const ReceiptPage = () => {
       <h1>Receipt</h1>
       {/* Receipt Fields and Functionality */}
     </div>
-  );
-};
+  )
+}
 
-export default ReceiptPage;
+export default ReceiptPage

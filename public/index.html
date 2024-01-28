@@ -1,43 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Sitio web creado con create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/styles.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Sistema de Contabilidad y Venta GAGMA-SEUS</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f2f2f2;
+      }
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .centered {
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      nav li {
+        margin: 0 10px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      /* Add more styles as needed */
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <noscript>Debes habilitar JavaScript para ejecutar esta aplicación.</noscript>
+    <div id="root">
+      <div class="container">
+        <p>Bienvenido al Sistema de Contabilidad y Venta GAGMA-SEUS</p>
+        <nav class="centered">
+          <ul>
+            <li>Hogar</li>
+            <li>Panel</li>
+            <li>Contabilidad</li>
+            <li>Venta especial en motocicletas
+              <ul>
+                <li>Motocicleta</li>
+                <li>MotosDo</li>
+                <li>yamaha</li>
+                <li>Tauro Turbo</li>
+                <li>Santana Motors</li>
+                <li>nipona</li>
+                <li>Bajaj</li>
+                <li>suzuki</li>
+              </ul>
+            </li>
+            <li>Catalogar
+              <ul>
+                <li>Producto 1</li>
+                <li>Producto 2</li>
+                <li>Producto 3</li>
+                <li>Producto 4</li>
+              </ul>
+            </li>
+            <li>Ventas</li>
+            <li>Financiero</li>
+            <li>Dinero</li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Widget de venta de motocicletas</h2>
+          <p>Este es el contenido del widget de venta de motos.</p>
+        </div>
+        <section>
+          <h2>¡Busca tu Motocicleta!</h2>
+          <form id="searchForm">
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" id="estado" placeholder="Ingresa el estado" />
+            <br />
+            <label for="marca">Marca:</label>
+            <input type="text" name="marca" id="marca" placeholder="Ingresa la marca" />
+            <br />
+            <label for="modelo">Modelo:</label>
+            <input type="text" name="modelo" id="modelo" placeholder="Ingresa el modelo" />
+            <br />
+            <label for="ano">Año:</label>
+            <input type="text" name="ano" id="ano" placeholder="Ingresa el año" />
+            hasta
+            <input type="text" name="anoHasta" id="anoHasta" placeholder="Ingresa el año hasta" />
+            <br />
+            <label for="precio">Precio:</label>
+            <input type="text" name="precio" id="precio" placeholder="Ingresa el precio" />
+            hasta
+            <input type="text" name="precioHasta" id="precioHasta" placeholder="Ingresa el precio hasta" />
+            <br />
+            <label for="lugar">Lugar:</label>
+            <input type="text" name="lugar" id="lugar" placeholder="Ingresa el lugar" />
+            <br />
+            <button type="button" onclick="openSearchForm()">Buscar por Código</button>
+          </form>
+          <p>Búsqueda Avanzada</p>
+          <div>
+            <h3>Tipos</h3>
+            <ul>
+              <li>Sedán</li>
+              <li>Compacto</li>
+              <li>Jeepeta</li>
+              <li>Camioneta</li>
+              <li>Coupé/Sport</li>
+              <li>Ver Todos!</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Motores</h3>
+            <ul>
+              <li>Barcos</li>
+              <li>Camiones</li>
+              <li>Autobuses</li>
+              <li>V. Pesados</li>
+              <li>Otros</li>
+            </ul>
+          </div>
+        </section>  
+        <footer>
+          <p>Contabilidad</p>
+          <p>Acerca de</p>
+          <p>Contacto</p>
+          <p>Términos de servicio</p>
+          <p>Política de privacidad</p>
+          <p>© 2024 Su Empresa. Reservados todos los derechos.</p>
+        </footer>
+      </div>
+    </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- The new window for motorcycle specifications -->
+    <div id="motorcycleForm" style="display: none;">
+      <h2>Motorcycle Specifications Form</h2>
+      <!-- Add the form fields for motorcycle specifications here -->
+    </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <script src="path/to/script.js"></script>
 </html>

@@ -1,5 +1,5 @@
 // src/components/PayablesPage/PayablesPage.js
-import React from 'react';
+import React from 'react'
 
 const PayablesPage = () => {
   return (
@@ -7,7 +7,7 @@ const PayablesPage = () => {
       <h1>Account Payable</h1>
       {/* Account Payable Fields and Functionality */}
     </div>
-  );
-};
+  )
+}
 
-export default PayablesPage;
+export default PayablesPage

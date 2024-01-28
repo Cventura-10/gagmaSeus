@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const SupplierPage = () => {
-  return <div>Supplier Page Content</div>;
-};
+  return <div>Supplier Page Content</div>
+}
 
-export default SupplierPage;
+export default SupplierPage
