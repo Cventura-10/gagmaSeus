@@ -1,5 +1,4 @@
 # Build and Dependency directories
-node_modules/
 /build/
 
 # Environment variables
@@ -13,14 +12,6 @@ node_modules/
 .idea/
 .vscode/
 
-# Log files
-*.log
-
 # Local data directories and files
-pids
-*.pid
-
-# Diretorios específicos
-.DS_Store
-npm-debug.log
-yarn-error.log
+pids/
+node_modules

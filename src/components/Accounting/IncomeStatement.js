@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-function IncomeStatement() {
+const IncomeStatement = () => {
+  const [incomeItems, setIncomeItems] = useState([]);
+
+  useEffect(() => {
+    const apiKey = 'KfT0I9yG2osxHARGamTBEjCEUH2QlV1iuu2xefpbTIfCMferjNo1qR43jqEzKnoU';
+
+    fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1/income-statement', {
+      headers: {
+        'x-api-key': apiKey
+      }
+    })
+      .then(response => response.json())
+      .then(data => setIncomeItems(data));
+  }, []);
+
   return (
     <div>
-      <h2>Income Statement</h2>
-      {/* Here you can add content such as a table, charts, or any other relevant information for the income statement */}
-      <p>This is the Income Statement page.</p>
+      <h3>Income Statement</h3>
+      <ul>
+        {incomeItems.map(item => (
+          <li key={item.id}>{item.name}: ${item.amount}</li>
+        ))}
+      </ul>
     </div>
   );
 }

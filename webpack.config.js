@@ -1,7 +1,10 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  entry: ['./src/index.js'], // Removed @babel/polyfill
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -10,12 +13,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$|\.jsx$/, // Added .jsx extension
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: [
+              ['@babel/preset-env', {
+                useBuiltIns: 'usage',
+                corejs: 3, // Specify core-js version
+              }],
+              '@babel/preset-react'
+            ],
           },
         },
       },
@@ -24,22 +33,30 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i, // Handling images
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i, // Handling fonts
+        type: 'asset/resource',
       },
     ],
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
+    static: path.resolve(__dirname, 'public'), // Updated from contentBase
     port: 8080,
     historyApiFallback: true,
+    hot: true,
   },
   resolve: {
-    alias: {
-      '@api': path.resolve(__dirname, 'src/api/api.js'), // Correct path alias for '@api'
-      'components': path.resolve(__dirname, 'src/components'),
-      'styles': path.resolve(__dirname, 'src/styles'),
-    },
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx'], // Added .jsx extension
   },
+  devtool: 'eval-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
+    }),
+    new CleanWebpackPlugin(),
+  ],
 };

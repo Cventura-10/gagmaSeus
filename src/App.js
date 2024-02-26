@@ -1,105 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-
-import Home from './components/Home';
-import DashboardPage from './components/DashboardPage/DashboardPage';
-import HistoryPage from './components/HistoryPage/HistoryPage';
-import PayablesPage from './components/PayablesPage/PayablesPage';
+// App.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { fetchSalesOrders, fetchAssets, fetchLiabilities } from './api/api'; // Make sure this path matches where your API functions are defined.
+import ErrorBoundary from './components/ErrorBoundary';
+import NavBar from './components/NavBar';
+import Home from './components/motorcycle-store/Home';
+import ProductCatalog from './components/ProductPage/ProductCatalog';
 import ProductPage from './components/ProductPage/ProductPage';
-import ReceiptPage from './components/ReceiptPage/ReceiptPage';
-import ReportsPage from './components/ReportsPage/ReportsPage';
 import SalesOrders from './components/Sales/SalesOrders';
-import SupplierPage from './components/SupplierPage/SupplierPage';
-import BillingPage from './components/Billing/BillingPage';
-import CustomerPage from './components/Customer/CustomerPage';
-import SecurityPage from './components/SecurityPage/SecurityPage';
+import Accounting from './components/Accounting/Accounting';
 import BalanceSheet from './components/Accounting/BalanceSheet';
-import IncomeStatement from './components/Accounting/IncomeStatement';
+import ChartOfAccounts from './components/Accounting/ChartOfAccounts';
 import TransactionList from './components/Accounting/TransactionList';
-import ModelsPage from './components/ModelsPage/ModelsPage.js'; // Adjust the case sensitivity
-import AccessoriesPage from './components/PurchasesPage/AccessoriesPage';
-import ContactPage from './components/ContactPage/ContactPage';
-import NotFound from './components/NotFound/NotFound';
-import './styles/App.css';
-import './styles.css';
+import InteractiveBanner1 from './components/InteractiveBanner1';
+import InteractiveBanner2 from './components/InteractiveBanner2';
+import ExampleComponent from './components/ExampleComponent';
 
-function App() {
-  const [isAccountingDropdownOpen, setAccountingDropdownOpen] = useState(false);
+const DataContext = createContext({});
 
-  const location = useLocation();
+export const useData = () => useContext(DataContext);
 
-  const toggleAccountingDropdown = () => {
-    setAccountingDropdownOpen(!isAccountingDropdownOpen);
-  };
+const App = () => {
+  const [data, setData] = useState({
+    salesOrders: {},
+    assets: {},
+    liabilities: {},
+  });
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    function handleOutsideClick(event) {
-      if (!event.target.closest('.Accounting-Section')) {
-        setAccountingDropdownOpen(false);
+    const fetchData = async () => {
+      try {
+        const salesOrdersResponse = await fetchSalesOrders();
+        const assetsResponse = await fetchAssets();
+        const liabilitiesResponse = await fetchLiabilities();
+        setData({
+          salesOrders: salesOrdersResponse,
+          assets: assetsResponse,
+          liabilities: liabilitiesResponse,
+        });
+      } catch (fetchError) {
+        setError('Failed to fetch data: ' + fetchError.message);
+      } finally {
+        setIsLoading(false);
       }
-    }
+    };
 
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    setAccountingDropdownOpen(false);
-  }, [location]);
-
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Welcome to the GAGMA-SEUS Accounting and Sale System</h1>
-        </header>
-
-        <nav className="App-nav">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li className="Accounting-Section">
-              <button onClick={toggleAccountingDropdown}>
-                Accounting
-              </button>
-              {isAccountingDropdownOpen && (
-                <ul className="Accounting-List">
-                  <li><Link to="/balance-sheet">Balance Sheet</Link></li>
-                  <li><Link to="/income-statement">Income Statement</Link></li>
-                  <li><Link to="/transaction-list">Transaction List</Link></li>
-                </ul>
-              )}
-            </li>
-          </ul>
-        </nav>
-
-        <div className="App-content">
+    <DataContext.Provider value={data}>
+      <Router>
+        <NavBar />
+        <ErrorBoundary>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/history" element={<History
-              Page />} />
-              <Route path="/payables" element={<PayablesPage />} />
-              <Route path="/products" element={<ProductPage />} />
-              <Route path="/receipts" element={<ReceiptPage />} />
-              <Route path="/reports" element={<ReportsPage />} />
-              <Route path="/sales-orders" element={<SalesOrders />} />
-              <Route path="/suppliers" element={<SupplierPage />} />
-              <Route path="/billing" element={<BillingPage />} />
-              <Route path="/customers" element={<CustomerPage />} />
-              <Route path="/security" element={<SecurityPage />} />
-              <Route path="/balance-sheet" element={<BalanceSheet />} />
-              <Route path="/income-statement" element={<IncomeStatement />} />
-              <Route path="/transaction-list" element={<TransactionList />} />
-              <Route path="/models" element={<ModelsPage />} />
-              <Route path="/purchases/accessories" element={<AccessoriesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<NotFound />} />
-              </Routes>
-          </div>
-          </div>
-          </Router>
-          );
-          }
-               
-              export default App;
+            <Route path="/" element={<><Home /><ExampleComponent /></>} />
+            <Route path="/product-catalog" element={<ProductCatalog />} />
+            <Route path="/product-page/:id" element={<ProductPage />} />
+            <Route path="/sales-orders" element={<SalesOrders />} />
+            <Route path="/accounting" element={<Accounting />}>
+              <Route index element={<div>Select an accounting option</div>} />
+              <Route path="balance-sheet" element={<BalanceSheet assetData={data.assets} liabilityData={data.liabilities} />} />
+              <Route path="chart-of-accounts" element={<ChartOfAccounts />} />
+              <Route path="transaction-list" element={<TransactionList />} />
+            </Route>
+            <Route path="/interactive-banner-1" element={<InteractiveBanner1 />} />
+            <Route path="/interactive-banner-2" element={<InteractiveBanner2 />} />
+          </Routes>
+        </ErrorBoundary>
+        {isLoading && <div>Loading data...</div>}
+        {error && <div>Error: {error}</div>}
+      </Router>
+    </DataContext.Provider>
+  );
+};
+
+export default App;

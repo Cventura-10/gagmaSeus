@@ -1,64 +1,64 @@
-export const API_KEY = 'API-KEY'; // Replace 'API-KEY' with your actual API key
+// src/api/api.js
+const BASE_URL = 'https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1';
+const API_KEY = 'YOUR_API_KEY_HERE'; // Replace 'YOUR_API_KEY_HERE' with your actual API key.
 
-export const fetchSalesData = async () => {
-  try {
-    const response = await fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1/sales', {
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`
-      }
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching sales data:', error);
-    throw error;
-  }
-};
+async function fetchData(endpoint, payload) {
+  const url = `${BASE_URL}/${endpoint}`;
 
-export const fetchInventoryData = async () => {
   try {
-    const response = await fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1/inventory', {
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`
-      }
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching inventory data:', error);
-    throw error;
-  }
-};
-
-export const fetchProfitLossData = async () => {
-  try {
-    const response = await fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1/profit-loss', {
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`
-      }
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching profit/loss data:', error);
-    throw error;
-  }
-};
-
-export const addSalesData = async (data) => {
-  try {
-    const response = await fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1/sales', {
+    const response = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      }
+        'api-key': API_KEY,
+      },
+      body: JSON.stringify(payload),
     });
-    const result = await response.json();
-    return result;
+
+    if (!response.ok) {
+      throw new Error(`API call to ${endpoint} failed: ${response.statusText}`);
+    }
+
+    return await response.json();
   } catch (error) {
-    console.error('Error adding sales data:', error);
+    console.error(`Fetching data from ${endpoint} failed`, error);
     throw error;
   }
+}
+
+export const fetchSalesOrders = async () => {
+  const payload = {
+    collection: 'salesOrders',
+    database: 'yourDatabaseName',
+    dataSource: 'yourClusterName',
+  };
+  return await fetchData('action/find', payload);
+};
+
+export const fetchAssets = async () => {
+  const payload = {
+    collection: 'assets',
+    database: 'yourDatabaseName',
+    dataSource: 'yourClusterName',
+  };
+  return await fetchData('action/find', payload);
+};
+
+export const fetchLiabilities = async () => {
+  const payload = {
+    collection: 'liabilities',
+    database: 'yourDatabaseName',
+    dataSource: 'yourClusterName',
+  };
+  return await fetchData('action/find', payload);
+};
+// Within ../../api/api.js
+
+export const fetchProducts = async () => {
+  const payload = {
+    collection: 'products',
+    database: 'yourDatabaseName',
+    dataSource: 'yourClusterName',
+  };
+  return await fetchData('action/find', payload);
 };

@@ -1,21 +1,35 @@
-import './Accounting.css';
+import React, { useState, useEffect } from 'react';
+import fetchData from '../../utils/fetchData';
 
-function Accounting() {
+const Accounting = () => {
+  const [salesData, setSalesData] = useState([]);
+
+  useEffect(() => {
+    const fetchAndSetSalesData = async () => {
+      try {
+        // Adjust 'https://example.com/api/sales' with your actual API endpoint for sales data
+        const data = await fetchData('https://example.com/api/sales');
+        setSalesData(data);
+      } catch (error) {
+        console.error('Error fetching sales data:', error);
+      }
+    };
+
+    fetchAndSetSalesData();
+  }, []);
+
   return (
-    <div className="accounting">
-      <header className="header">
-        <h1>Accounting Dashboard</h1>
-      </header>
-      
-      <main className="main-content">
-        {/* Main content of Accounting */}
-      </main>
-
-      <footer className="footer">
-        <p>© BikeWorld Accounting - All financial data is confidential.</p>
-      </footer>
+    <div>
+      <h2>Sales Data</h2>
+      <ul>
+        {salesData.map((item, index) => (
+          <li key={index}>
+            {item.name} {/* Adjust this based on your actual data structure */}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default Accounting;

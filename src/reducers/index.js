@@ -1,12 +1,19 @@
-// reducers/index.js
 import { combineReducers } from 'redux';
+// Import your actual reducers here
+import accountingReducer from './accountingReducer';
+import dashboardReducer from './dashboardReducer';
 import userReducer from './userReducer';
-import dashboardReducer from './dashboardReducer'; // or whatever your dashboard reducer is called
+import settingReducer from './settingReducer';
+// Note: `settingsReducer.js` and `settingReducer.js` might be a typo or duplicate. Use the correct one.
 
+// Combine all reducers into a single rootReducer
 const rootReducer = combineReducers({
-  user: userReducer,
+  // Mapping of state properties to reducers
+  accounting: accountingReducer,
   dashboard: dashboardReducer,
-  // ...other reducers
+  user: userReducer,
+  settings: settingReducer,
+  // Add other reducers here as needed
 });
 
 export default rootReducer;

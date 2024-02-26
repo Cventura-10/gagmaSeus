@@ -1,35 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchSalesOrders } from '../../api/api';
 
-const SalesOrders = () => {
-  const orders = [
-    { id: 1, productName: 'Product A', quantity: 3 },
-    { id: 2, productName: 'Product B', quantity: 5 },
-    { id: 3, productName: 'Product C', quantity: 2 },
-  ];
+export default function SalesOrders() {
+  const [salesOrders, setSalesOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadSalesOrders = async () => {
+      try {
+        const ordersData = await fetchSalesOrders();
+        setSalesOrders(ordersData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching sales orders:', error);
+        setError(error);
+        setIsLoading(false);
+      }
+    };
+
+    loadSalesOrders();
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error fetching data: {error.message}</div>;
+  }
 
   return (
     <div>
-      <h1>Sales Orders</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.id}>
-              <td>{order.id}</td>
-              <td>{order.productName}</td>
-              <td>{order.quantity}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h2>Sales Orders</h2>
+      {salesOrders.length > 0 ? (
+        salesOrders.map(order => (
+          <div key={order._id}> {/* Adjust key as needed based on your data structure */}
+            <p>Customer: {order.customer}</p>
+            <p>Status: {order.status}</p>
+            <ul>
+              {order.items.map((item, index) => (
+                <li key={index}>{item.name}: {item.quantity}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      ) : (
+        <p>No sales orders found.</p>
+      )}
     </div>
   );
-};
-
-export default SalesOrders;
+}

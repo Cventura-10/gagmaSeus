@@ -1,36 +1,23 @@
-require('dotenv').config();
-const path = require('path');
 const express = require('express');
-const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const { MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_HOST, MONGODB_DATABASE } = process.env;
+// Configure CORS to allow specific origins or all (*) for development
+const corsOptions = {
+  origin: '*', // for production, replace '*' with your frontend's URL, e.g., 'https://myfrontend.com'
+};
+app.use(cors());
 
-// Middleware
-app.use(express.json());
+// Mock sales data
+const salesData = [
+  { id: 1, name: 'Product A', value: 100 },
+  { id: 2, name: 'Product B', value: 200 },
+];
 
-// MongoDB Connection
-const uri = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}/${MONGODB_DATABASE}?retryWrites=true&w=majority`;
-
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('MongoDB connected successfully');
-    app.listen(PORT, () => {
-      console.log(`Server is running on port: ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
-
-// Serve the static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// API routes or other routes
-// ...
-
-// Set a fallback route to serve the React application
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// Endpoint to get sales data
+app.get('/api/sales', (req, res) => {
+  res.json(salesData);
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
