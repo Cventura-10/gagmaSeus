@@ -1,0 +1,23 @@
+.product-catalog {
+    padding: 20px;
+  }
+  
+  .filters {
+    margin-bottom: 10px;
+    /* Style filters */
+  }
+  
+  .motorcycle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .motorcycle-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    /* Style for motorcycle items */
+  }
+  
+  /* Additional styles for buttons, etc. */
+  

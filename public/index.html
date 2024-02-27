@@ -1,48 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Find the best motorcycles and accessories in our Motorcycle Store." />
-  <link rel="apple-touch-icon" href="/logo192.png" />
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Motorcycle Store</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gagma-Seus</title>
+    <!-- Assuming you have a favicon.ico in your project root -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Link to your main CSS file (if exists) -->
+    <link rel="stylesheet" href="/src/styles/App.css">
+    <!-- Any other meta tags, stylesheets, or head scripts go here -->
 </head>
 <body>
-  <noscript>You need to enable JavaScript to run this application.</noscript>
-
-  <div id="root" class="container">
-    <header class="header">
-      <h1>Welcome to the Motorcycle Store</h1>
-      <nav class="navigation">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <!-- Adding a Search Button -->
-          <li><button id="openSearchBtn">Search</button></li>  
-        </ul>
-      </nav>
-      <!-- Search Form -->
-      <div id="searchForm" style="display:none;">
-        <input type="text" placeholder="Type to search...">
-        <button type="submit">Submit</button>
-      </div>
-    </header>
-
-    <main class="centered">
-      <!-- React components will be attached here by React -->
-    </main>
-
-    <footer class="footer">
-      <p>© 2024 Gagma-Seus. All rights reserved.</p>
-    </footer>
-  </div>
-
-  <!-- Reference the JavaScript file -->
-  <script src="script.js" defer></script>  <!-- Adjusted the path if script.js is in the same directory -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!-- Scripts will be injected here by your build process -->
+    <!-- If you have a manually added script, you can add it below -->
+    <script src="bundle.js"></script> <!-- Example script tag; adjust the src as per your setup -->
 </body>
 </html>

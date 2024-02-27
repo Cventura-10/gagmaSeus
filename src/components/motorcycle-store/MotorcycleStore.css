@@ -1,0 +1,92 @@
+/* Using CSS Variables for Easy Theme Management */
+:root {
+    --primary-color: #007bff; /* Example: Blue */
+    --text-color: #343a40;    /* Example: Darker grey */
+    --background-color: #f8f9fa; /* Example: Light grey */
+    --hover-color: #0056b3; /* Example: Darker blue */
+    --font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* General Layout */
+  .motorcycle-store-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: var(--font-family);
+  }
+  
+  /* Header and Navigation */
+  .motorcycle-store-header {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .motorcycle-store-nav {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    background-color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .motorcycle-store-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; 
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .motorcycle-store-nav a:hover,
+  .motorcycle-store-nav a:focus { /* Improve interactivity and accessibility */
+    background-color: var(--hover-color);
+    outline: none; /* Removing default focus outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus indication */
+  }
+  
+  /* Main Content */
+  .motorcycle-store-main {
+    flex-grow: 1;
+    padding: 15px;
+    background-color: var(--background-color);
+  }
+  
+  /* Footer */
+  .motorcycle-store-footer {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Ensures footer is at the bottom */
+  }
+  
+  /* Product-specific Styling */
+  .product-item {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s; /* Smooth scale transformation */
+  }
+  
+  .product-item:hover {
+    transform: scale(1.05); /* Slight increase in size on hover */
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .motorcycle-store-nav {
+      flex-direction: column; /* Stacking nav items on smaller screens */
+      align-items: center;
+    }
+  
+    .product-item {
+      width: 100%; /* Full width for smaller screens */
+    }
+  }
+  

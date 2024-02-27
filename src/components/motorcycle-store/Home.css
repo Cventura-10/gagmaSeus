@@ -1,0 +1,68 @@
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+.main-content {
+  display: flex;
+  padding: 20px;
+}
+
+.menu-frame {
+  background-color: black;
+  color: white;
+  width: 200px;
+  padding: 20px;
+}
+
+.menu-frame ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-frame li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.featured-section {
+  margin: 20px;
+  flex-grow: 1; /* Ensures the section takes up the remaining space */
+}
+
+.featured-motorcycles {
+  display: flex;
+  justify-content: space-around; /* Adjusts spacing between items */
+}
+
+.motorcycle-item img {
+  width: 100%;
+  max-width: 200px; /* Adjusts image size, maintaining aspect ratio */
+  border-radius: 5px;
+  margin-bottom: 20px; /* Adds spacing below images */
+}
+
+.popular-products-section {
+  margin: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.product-card h3 {
+  margin-top: 10px;
+}
+
+.product-card p {
+  color: #666;
+}
