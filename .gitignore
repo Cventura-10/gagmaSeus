@@ -15,3 +15,14 @@
 # Local data directories and files
 pids/
 node_modules
+AWSCLIV2.pkg
+aws-replication-installer-init
+aws/
+awscliv2.zip
+gagmaSeus/
+quorum/
+ssh-keygen
+ssh-keygen.pub
+ws/
+gagmaSeus/
+quorum/

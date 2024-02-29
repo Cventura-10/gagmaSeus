@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class ErrorBoundary extends React.Component {
-  // Initialize state with hasError flag set to false
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
 
-  // Update state so that the next render will show the fallback UI
-  static getDerivedStateFromError(error) {
-    // Return new state
+  // Update state so the next render shows fallback UI
+  static getDerivedStateFromError() {
+    // You would typically use the error parameter to log the error
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
     // You can log the error and error information to an error reporting service
+    // e.g., logErrorToMyService(error, errorInfo);
     console.log(error, errorInfo);
   }
 
@@ -30,7 +30,6 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// PropTypes validation for children
 ErrorBoundary.propTypes = {
   children: PropTypes.node.isRequired,
 };
