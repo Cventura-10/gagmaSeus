@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    // Compile the TypeScript code to ECMAScript 2016 standards.
+    "module": "commonjs",
+    // Use CommonJS module resolution, common in Node.js environments.
+    "outDir": "./dist",
+    // Output the compiled JavaScript files to the ./dist directory.
+    "rootDir": "./src",
+    // Treat ./src as the root directory of your source files.
+    "strict": true,
+    // Enable all strict type-checking options.
+    "esModuleInterop": true,
+    // Enable compatibility with Babel compilation for ES Modules.
+    "forceConsistentCasingInFileNames": true,
+    // Ensure file names are consistent in case-sensitivity.
+    "skipLibCheck": true
+    // Skip type checking of declaration files (*.d.ts).
+  },
+  "include": ["src/**/*"]
+  // Include all files in the src directory and its subdirectories.
+}
