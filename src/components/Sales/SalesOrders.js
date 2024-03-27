@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { fetchSalesOrders } from '../../api/api';
 
@@ -29,6 +30,21 @@ export default function SalesOrders() {
   if (error) {
     return <div>Error fetching data: {error.message}</div>;
   }
+=======
+// SalesOrders.js
+import React, { useState, useEffect } from 'react';
+import api from '../../api/api'; // Adjust the import path
+
+const SalesOrders = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    // Fetch sales data when the component mounts
+    api.fetchSalesData()
+      .then(data => setOrders(data))
+      .catch(error => console.error('Error fetching sales data:', error));
+  }, []);
+>>>>>>> 4d45f02 (Add controllers and middleware directories)
 
   return (
     <div>

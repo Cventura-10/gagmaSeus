@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 const express = require('express');
+=======
+// Check for connections
+require('dotenv').config();
+const path = require('path');
+const express = require('express');
+const mongoose = require('mongoose');
+>>>>>>> 4d45f02 (Add controllers and middleware directories)
 const cors = require('cors');
 
 const app = express();
@@ -8,11 +16,17 @@ const corsOptions = {
 };
 app.use(cors());
 
+<<<<<<< HEAD
 // Mock sales data
 const salesData = [
   { id: 1, name: 'Product A', value: 100 },
   { id: 2, name: 'Product B', value: 200 },
 ];
+=======
+// Middleware
+app.use(express.json());
+app.use(cors());
+>>>>>>> 4d45f02 (Add controllers and middleware directories)
 
 // Endpoint to get sales data
 app.get('/api/sales', (req, res) => {

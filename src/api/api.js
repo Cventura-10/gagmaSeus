@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/api/api.js
 const BASE_URL = 'https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1';
 const API_KEY = 'YOUR_API_KEY_HERE'; // Replace 'YOUR_API_KEY_HERE' with your actual API key.
@@ -62,3 +63,20 @@ export const fetchProducts = async () => {
   };
   return await fetchData('action/find', payload);
 };
+=======
+// api.js
+import axios from 'axios';
+
+const API_KEY = 'KfT0I9yG2osxHARGamTBEjCEUH2QlV1iuu2xefpbTIfCMferjNo1qR43jqEzKnoU';
+const API_BASE_URL = 'https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1';
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+    'Api-Key': API_KEY,
+  },
+});
+
+export default api;
+>>>>>>> 4d45f02 (Add controllers and middleware directories)

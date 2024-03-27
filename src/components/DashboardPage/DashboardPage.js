@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 
 const ProductPage = () => {
@@ -47,6 +48,15 @@ const ProductPage = () => {
       </ul>
       
       <button onClick={handleAddToCart}>Add to Cart</button>
+=======
+import React from 'react';
+
+const DashboardPage = () => {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      {/* Add your dashboard content here */}
+>>>>>>> 4d45f02 (Add controllers and middleware directories)
     </div>
   );
 };

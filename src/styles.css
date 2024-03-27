@@ -1,0 +1,130 @@
+/* styles.css */
+.home-page {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+.app-title {
+  margin: 0;
+}
+
+.navigation {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.announcement-widget {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.announcement {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-right: 20px;
+}
+
+.card-title {
+  margin-top: 0;
+  color: #333;
+}
+
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.menu-items li {
+  margin: 5px 0;
+}
+
+.sale-widget-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sale-widget {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.accounting-image-container {
+  text-align: center;
+}
+
+.accounting-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-menu {
+  margin-bottom: 10px;
+}
+
+.footer-menu-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 10px;
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 0.8rem;
+}

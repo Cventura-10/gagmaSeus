@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // App.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -78,4 +79,40 @@ const App = () => {
   );
 };
 
+=======
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+
+import DashboardPage from './components/DashboardPage/DashboardPage'; 
+import Accounting from './components/Accounting/Accounting';
+import Footer from './components/Footer';
+
+function App() {
+    return (
+        <Router>
+            <Navbar bg="light" expand="lg">
+                <Navbar.Brand href="/">Automobile Store App</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link as={Link} to="/">Home</Nav.Link> {/* Home should be a valid component */}
+                        <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                        <Nav.Link as={Link} to="/accounting">Accounting</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+
+            <Routes>
+                <Route path="/dashboard" element={<DashboardPage />}/> 
+                <Route path="/accounting" element={<Accounting />}/> 
+                {/* Add route for Home if applicable <Route path="/" element={<Home />} /> */}
+            </Routes>
+            <Footer />
+        </Router>
+    );
+}
+
+>>>>>>> 4d45f02 (Add controllers and middleware directories)
 export default App;

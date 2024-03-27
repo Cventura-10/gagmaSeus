@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "customer": "John Doe",
+      "totalAmount": 100.0,
+      "status": "Paid"
+    },
+    {
+      "id": 2,
+      "customer": "Jane Smith",
+      "totalAmount": 250.0,
+      "status": "Pending"
+    },
+    {
+      "id": 3,
+      "customer": "Alex Johnson",
+      "totalAmount": 150.0,
+      "status": "Paid"
+    }
+  ]
+  
