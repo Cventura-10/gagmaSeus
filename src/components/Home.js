@@ -1,12 +1,16 @@
 import React from 'react';
-// Assuming a dedicated CSS file if necessary, e.g., Footer.module.css
+// The following imports are commented out because they're currently unused
+// import { useSelector /* , useDispatch */ } from 'react-redux';
+// import Footer from './Footer';
 
-function Footer() {
-    return (
-        <footer>
-            {/* Footer content, possibly navigation links, copyrights */}
-        </footer>
-    );
+const Home = () => {
+  // Other component logic
+
+  return (
+    <div>
+      {/* Other component JSX */}
+    </div>
+  );
 }
 
-export default Footer;
+export default Home;

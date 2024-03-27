@@ -1,4 +1,5 @@
 // src/reducers/someReducer.js
+<<<<<<< HEAD
 
 // Define initial state
 const initialState = {
@@ -57,4 +58,17 @@ const initialState = {
   };
   
   export default someReducer;
+=======
+const initialState = {
+    // Define your initial state here
+  };
+  
+  export default function someReducer(state = initialState, action) {
+    switch (action.type) {
+      // Handle actions here
+      default:
+        return state;
+    }
+  }
+>>>>>>> 3c62d4b (Commit my local changes before merging)
   

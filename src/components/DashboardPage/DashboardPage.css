@@ -1,4 +1,4 @@
-/* src/styles/components/Dashboard.css */
+/* src/components/DashboardPage/Dashboard.css */
 
 .dashboard-container {
   display: flex;
@@ -13,14 +13,12 @@
   margin-bottom: 20px;
 }
 
-.dashboard .widget-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.widget-container {
+  display: flex; /* fallback for older browsers */
+  flex-wrap: wrap; 
   margin-top: 20px;
 }
 
-.dashboard .widget,
 .widget {
   padding: 20px;
   border: 1px solid #ddd;
@@ -28,9 +26,14 @@
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-bottom: 20px; /* add space between the items */
 }
 
-.dashboard .widget a,
+/* Each widget will attempt to be 300px wide, but can shrink to accommodate the container size */
+.widget {
+  flex: 1 1 300px;
+}
+
 .widget a {
   display: inline-block;
   margin-top: 1rem;
@@ -42,7 +45,15 @@
 }
 
 @media (max-width: 768px) {
-  .dashboard .widget-container {
-    grid-template-columns: 1fr;
+  /* Adjust for mobile */
+  .widget-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .widget {
+    /* widgets will expand to full width on smaller screens */
+    flex-basis: auto;
+    width: 100%;
   }
 }

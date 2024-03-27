@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './BottomMenus.css'; // Ensure you create this CSS file
 
 const BottomMenus = () => {
   return (
     <div className="bottom-menus">
-      <Link to="/dashboard">Dashboard Menu</Link>
-      <Link to="/accounting">Accounting Menu</Link>
+      <NavLink to="/dashboard" activeClassName="active-menu">Dashboard</NavLink>
+      <NavLink to="/accounting" activeClassName="active-menu">Accounting</NavLink>
     </div>
   );
 };

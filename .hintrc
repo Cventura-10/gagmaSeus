@@ -12,6 +12,14 @@
       }
     ],
     "typescript-config/consistent-casing": "off",
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "grid-template-columns"
+        ]
+      }
+    ]
   }
 }

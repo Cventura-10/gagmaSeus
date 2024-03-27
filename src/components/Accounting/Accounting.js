@@ -32,29 +32,38 @@ const Accounting = () => {
 =======
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Accounting.css'; // Import CSS file for styling
+import './Accounting.css'; // This CSS file should already exist in your project
 
 function Accounting() {
   const [financialData, setFinancialData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://us-east-1.aws.data.mongodb-api.com/app/data-efauf/endpoint/data/v1', {
+        const response = await axios.get('API_URL', { // Replace 'API_URL' with your actual endpoint
           headers: {
-            'x-api-key': 'API KeyKfT0I9yG2osxHARGamTBEjCEUH2QlV1iuu2xefpbTIfCMferjNo1qR43jqEzKnoU',
+            'x-api-key': 'YOUR_API_KEY', // Replace 'YOUR_API_KEY' with your actual API key
           },
         });
-
-        const data = response.data;
-        setFinancialData(data);
+        setFinancialData(response.data);
+        setLoading(false);
       } catch (error) {
-        console.error('Error fetching financial data:', error);
+        setError('Error fetching financial data');
+        setLoading(false);
       }
     };
-
     fetchData();
   }, []);
+
+  if (loading) {
+    return <div>Loading financial data...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="accounting">
@@ -63,15 +72,8 @@ function Accounting() {
       </header>
       
       <main className="main-content">
-        {/* Display financial data */}
-        {financialData ? (
-          <div>
-            {/* Display financial data here */}
-            <p>{JSON.stringify(financialData)}</p>
-          </div>
-        ) : (
-          <p>Loading financial data...</p>
-        )}
+        {/* Display financial data here when available */}
+        <pre>{JSON.stringify(financialData, null, 2)}</pre>
       </main>
 
       <footer className="footer">

@@ -81,34 +81,56 @@ const App = () => {
 
 =======
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
+// Main component imports
+import Home from './components/Home';
 import DashboardPage from './components/DashboardPage/DashboardPage'; 
 import Accounting from './components/Accounting/Accounting';
+import ContactPage from './components/ContactPage/ContactPage';
+import NotFound from './components/NotFound/NotFound';
+
+// Additional possible component imports (commented out as examples):
+// import CustomerPage from './components/Customer/CustomerPage';
+// import ProductPage from './components/ProductPage/ProductPage';
+// ... other components you might have and want to include as routes
+
 import Footer from './components/Footer';
 
 function App() {
     return (
         <Router>
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="/">Automobile Store App</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Automobile Store App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link> {/* Home should be a valid component */}
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
                         <Nav.Link as={Link} to="/accounting">Accounting</Nav.Link>
+                        <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                        {/* Other navigation links would go here */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
 
             <Routes>
-                <Route path="/dashboard" element={<DashboardPage />}/> 
-                <Route path="/accounting" element={<Accounting />}/> 
-                {/* Add route for Home if applicable <Route path="/" element={<Home />} /> */}
+                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/accounting" element={<Accounting />} />
+                <Route path="/contact" element={<ContactPage />} />
+
+                {/* Placeholder for additional routes, comment back in and configure as needed.
+                <Route path="/customer" element={<CustomerPage />} />
+                <Route path="/products" element={<ProductPage />} />
+                ... other routes for additional pages
+                */}
+
+                <Route path="*" element={<NotFound />} />
             </Routes>
+            
             <Footer />
         </Router>
     );

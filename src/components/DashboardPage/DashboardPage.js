@@ -50,13 +50,20 @@ const ProductPage = () => {
       <button onClick={handleAddToCart}>Add to Cart</button>
 =======
 import React from 'react';
+import './Dashboard.css'; // This line correctly points to your Dashboard.css file in the same folder.
 
 const DashboardPage = () => {
   return (
+<<<<<<< HEAD
     <div>
       <h2>Dashboard</h2>
       {/* Add your dashboard content here */}
 >>>>>>> 4d45f02 (Add controllers and middleware directories)
+=======
+    <div className="dashboard-container">
+      <h2 className="dashboard-header">Motorcycle Store Dashboard</h2>
+      {/* The rest of your component */}
+>>>>>>> 3c62d4b (Commit my local changes before merging)
     </div>
   );
 };
